@@ -1,7 +1,10 @@
 "use client";
 
-import DropDownMenu from "./DropdownMenu";
+import Link from "next/link";
 import MobileNavbar from "./MobileNavbar";
+import { buttonVariants } from "./ui/button";
+import { SignedIn, UserButton } from "@clerk/nextjs";
+import DropDownMenu from "./DropDownMenu";
 
 const Navbar = () => {
   return (
@@ -11,8 +14,9 @@ const Navbar = () => {
       <div className="w-full flex-1">
         <span className="sr-only">Toggle user menu</span>
       </div>
-
-      <DropDownMenu />
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
     </header>
   );
 };
